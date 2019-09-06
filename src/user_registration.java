@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
  */
 public class user_registration extends javax.swing.JFrame {
 
-    /**
+    /*
+    //*
      * Creates new form user_registration
      */
     public user_registration() {
