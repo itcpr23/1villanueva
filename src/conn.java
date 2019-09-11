@@ -7,7 +7,7 @@
 /**
  *
  * @author hp
- */
+ *////
 public class conn {
     protected String dbname = "villanueva_reg";
     protected String url = "jdbc:mysql://localhost/"+dbname;
