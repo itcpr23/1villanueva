@@ -2,6 +2,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,10 +30,9 @@ try{
         ps.setInt(2, prqty);
         ps.setInt(3, prprice);
         ps.executeUpdate();
-}       catch (SQLException ex) {
+}       catch (ClassNotFoundException ex) {
             Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 
