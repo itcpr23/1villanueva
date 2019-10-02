@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ *////
 
 /**
  *
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class productframe {
     conn cn = new conn();
-public int addproduct(String prname, int prqty, int prprice){
+public void addproduct(String prname, int prqty, int prprice){
     int z = 0;
      String sql= "insert into product_info values (null,?,?,?)";
 try{
@@ -35,4 +35,19 @@ try{
         } catch (SQLException ex) {
             Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
         }
+}
 
+public void delete(int id){
+        try { 
+            Class.forName(cn.driver);
+            Connection con = DriverManager.getConnection(cn.url,cn.username,cn.password);
+            PreparedStatement ps = con.prepareStatement("Delete from product_info where id = ?");
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+}

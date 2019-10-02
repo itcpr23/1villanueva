@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author hp
  */
 public class login extends javax.swing.JFrame {
-
+loginclass1 login = new loginclass1();
     /**
      * Creates new form login
      *////
@@ -75,6 +75,11 @@ try{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Username");
 
@@ -118,6 +123,21 @@ try{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+String uname = user.getText();
+String pword = new String(pass.getPassword());
+
+int a =login.enter(uname, pword);
+
+if(a==1){
+    this.setVisible(false); new product().setVisible(true);
+}
+else{
+    JOptionPane.showMessageDialog(this, "incorrect username or password","message",JOptionPane.ERROR_MESSAGE);
+}
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
