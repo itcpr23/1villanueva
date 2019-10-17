@@ -223,6 +223,11 @@ while(rs.next()){
         );
 
         jButton3.setText("BACK");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("DELETE");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -300,12 +305,16 @@ add.setVisible(true);   add.setLocationRelativeTo(this);        // TODO add your
                 int x = JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete "+t1 , "CONFIRMATION", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
                 if( x == JOptionPane.YES_OPTION){
                     int sus = Integer.parseInt(jTable1.getValueAt(tbl, 0).toString());
-                    productframe fr = new productframe();
+                    productframe fr = new productframe();//addproduct_frame
                     fr.delete(sus);
                     products();
                 }
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
