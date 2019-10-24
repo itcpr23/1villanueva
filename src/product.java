@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author hp
  */
 public class product extends javax.swing.JFrame {
+    int act =0;
     int noSelected = -1;
      String driver = "com.mysql.jdbc.Driver";
      String url = "jdbc:mysql://localhost/villanueva_reg?";
@@ -301,6 +302,8 @@ while(rs.next()){
     }// </editor-fold>//GEN-END:initComponents
 
     private void subActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subActionPerformed
+
+if(act==0){        
 String product=pro.getText();
 if(product.equals("")||pr.getText().equals("")){
     JOptionPane.showMessageDialog(rootPane, "field is empty","!",JOptionPane.WARNING_MESSAGE);
@@ -316,6 +319,20 @@ fr.addproduct(product, qty, price);
  pro.setText("");
  qq.setValue(1);
  pr.setText("");}
+}
+else{
+ productframe prod = new productframe();
+ prod.editQuantity(prodId, Integer.parseInt(qq.getValue().toString()));
+ JOptionPane.showMessageDialog(rootPane, "Product Updated");
+ products();
+  qq.setValue(0);
+  pro.setText("");
+  pr.setText("");
+  pro.setEnabled(true);
+  pr.setEnabled(true);
+  act=0;
+    
+}
 // TODO add your handling code here:
     }//GEN-LAST:event_subActionPerformed
 
@@ -351,11 +368,11 @@ int row = jTable1.getSelectedRow();
 if(row==noSelected){
     
 }
-else{
+else{act=5;
   prodId = Integer.parseInt(jTable1.getValueAt(row, 0).toString());
-  qq.setValue(jTable1.getValueAt(row, 3));
+ 
   pro.setText(jTable1.getValueAt(row, 1).toString());
-  pr.setText(jTable1.getValueAt(row, 2).toString());
+  pr.setText(jTable1.getValueAt(row, 3).toString());
   qq.setEnabled(true);
   pro.setEnabled(false);
   pr.setEnabled(false);

@@ -50,4 +50,19 @@ public void delete(int id){
             Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
+
+public void editQuantity(int id, int quantity){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(cn.url,cn.username,cn.password);
+            PreparedStatement ps = con.prepareStatement("update product_info set quantity = quantity + ? where id = ?");
+            ps.setInt(1, quantity);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(productframe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
 }
